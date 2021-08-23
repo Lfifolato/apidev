@@ -37,6 +37,8 @@ export default class ProdutosController {
   public async destroy({ params, response }: HttpContextContract) {
     const produto = await Produto.findOrFail(params.id)
 
+    produto.delete()
+
     return response.status(204).send('Produto Deletado com sucesso')
   }
 }
